@@ -17,7 +17,7 @@ for i in filenames:
             if type(i[a])==str:
                 filename=path+'/'+i[a]
                 if filename.split('.')[-1]=="txt":
-                    print("Procesando:                      "+ filename.split('/')[-1].split('.')[0])
+                    print("Procesando:          "+ filename.split('/')[-1].split('.')[0])
                     inicio=time.time()
                     with open(filename, 'r', encoding="utf8") as file:
                         data = file.read().replace('\n', '')
@@ -35,7 +35,7 @@ for i in filenames:
                 filename=path+"/"+i[a]
                 if filename.split('.')[-1]=="wav":
                     name=filename.split('.')[-2]
-                    print("Procesando video:                      "+ filename.split('/')[-1].split('.')[0]+"\n\n")
+                    print("Procesando video:           "+ filename.split('/')[-1].split('.')[0]+"\n\n")
                     inicio=time.time()
                     cmd = path.split('"\"')[0]+" & cd "+path.split('":"')[0]+" & "+'ffmpeg -y -i '+name+'.wav -i '+name+'.jpg   -filter:a aresample=async=1 -c:a flac -c:v copy '+name+'.mkv'
                     subprocess.call(cmd, shell=True)
